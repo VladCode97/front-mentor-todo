@@ -24,9 +24,9 @@ export const HomeLayout = StyleComponent.div`
 
 export const TitleHome = StyleComponent.h1`
     position: absolute;
-    left: 20%;
+    left: 35%;
     top: 5%;
-    font-size: 70px;
+    font-size: 60px;
     letter-spacing: 10px;
     font-weight: 500;
     color: white;
