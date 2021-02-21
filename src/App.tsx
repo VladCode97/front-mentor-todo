@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {useChangeTheme} from "./hooks/theme-hook";
+import {ThemeProvider} from "styled-components";
+import {GlobalStyles} from './utils/theme/global-theme';
+import {DarkTheme, LightTheme} from "./utils/theme/config.theme";
+import {HomeComponent} from "./components/home/home-component";
+import {ButtonChangeTheme} from "./styles/button-style";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const {theme, themeToggle} = useChangeTheme();
+    return (
+        <ThemeProvider theme={(theme) === 'light' ? LightTheme : DarkTheme}>
+            <GlobalStyles/>
+            <ButtonChangeTheme onClick={themeToggle}/>
+            <HomeComponent/>
+        </ThemeProvider>
+    );
 }
 
 export default App;
